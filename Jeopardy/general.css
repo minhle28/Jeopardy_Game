@@ -1,0 +1,94 @@
+/* for login and register pages */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: url("Pics/background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: 0 0px;
+}
+
+
+.wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-page {
+    width: 420px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    padding: 2rem;
+    background: #ffffff;
+}
+
+.form-input {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+.form-input:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+
+/* For Login page */
+.login-button {
+    background: #607dff;
+    border: 1px;
+    border-radius: 25px;
+    padding: 10px;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: larger;
+}
+
+.login-button:hover {
+    background: #0f44d6;
+    color: #fafafa;
+}
+
+td {
+    padding: 8px 18px 8px 18px;
+}
+
+
+
+
+/* For Register page */
+.register-button {
+    background: #f18a29;
+    border: 1px;
+    border-radius: 25px;
+    padding: 10px;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: larger;
+}
+
+.register-button:hover {
+    background: #e94d04;
+    color: #fafafa;
+}
+
+.hr1 {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+.login-or-register {
+    text-align: center;
+    padding-top: 20px;
+}

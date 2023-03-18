@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: url("Pics/index_background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+
+/*For logout button*/
+.logout-button {
+    background:#69d2e7;
+    border: 1px ;
+    border-radius: 25px;
+    padding: 8px 15px 8px 15px;
+    overflow: auto;
+    text-transform: uppercase;
+    font-size: medium;
+    font-weight: bold;
+    text-decoration: none;
+    float: right;
+    margin: 40px 10px;
+}
+
+.logout-button:hover{
+    background: #0f44d6;
+    color: #ffffff;
+}
+
+#left_side {
+    width: 200px;
+}
+
+.player, .score {
+    background:#69d2e7;
+    border: 1px ;
+    border-radius: 25px;
+    padding: 8px 15px 8px 15px;
+    overflow: auto;
+    text-transform: uppercase;
+    font-size: medium;
+    font-weight: bold;
+    text-decoration: none;
+    float: left;
+    margin: 40px 0 0 10px;
+}
+
+
+
+/*For table*/
+#board {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content{
+    width: 700px; 
+    height: 470px;
+    text-align: center;
+    color: white;
+    background-color: #2a41a5;
+}
+
+h2 {
+    padding-top: 10%;
+    padding-bottom: 35px;
+    color: yellow;
+}
+
+h3 {
+    position: relative;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    padding-top: 30px;
+    padding-bottom: 100px;
+}
+
+#form {
+    position: relative;
+    bottom: 15px;
+}
+
+.answer-input {
+    width: 50%;
+    padding: 12px;
+    margin: 8px 0 22px 180px;
+    border: none;
+    border-radius: 25px;
+    background: #f1f1f1;
+    display: flex;
+    flex-flow: column;
+}
+
+.answer-input:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.submit-answer {
+    background: #69d2e7;
+    border: 1px;
+    border-radius: 25px;
+    padding: 7px;
+    width: 20%;
+    text-transform: uppercase;
+    font-size: larger;
+}
+
+.submit-answer:hover {
+    background: #2660fd;
+    color: #fafafa;
+}

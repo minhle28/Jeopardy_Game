@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: url("Pics/index_background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+
+/*For logout button and go back button*/
+.logout-button {
+    background: #69d2e7;
+    border: 1px;
+    border-radius: 25px;
+    padding: 8px 15px 8px 15px;
+    overflow: auto;
+    text-transform: uppercase;
+    font-size: medium;
+    font-weight: bold;
+    text-decoration: none;
+    float: right;
+    margin: 40px 10px;
+}
+
+.logout-button:hover {
+    background: #0f44d6;
+    color: #ffffff;
+}
+
+.back-button {
+    background: #e2e464;
+    border: 1px;
+    border-radius: 25px;
+    padding: 8px 15px 8px 15px;
+    overflow: auto;
+    text-transform: uppercase;
+    font-size: medium;
+    font-weight: bold;
+    text-decoration: none;
+    float: left;
+    margin: 40px 0 0 10px;
+}
+
+.back-button:hover {
+    background: #c8ca5b;
+    color: #ffffff;
+}
+
+#content {
+    position: absolute;
+    width: 60%;
+    height: 400px;
+    top: 320px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.rank-leadingboard {
+    width: 600px;
+    text-align: center;
+    background-image: linear-gradient(to left, violet 0%, green 45%, yellow 60%, orange 75%, red 100%);
+    border-radius: 20px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -140px);
+}
+
+.rank-winner {
+    position: relative;
+    animation: congrat 2s 1;
+    animation-fill-mode: forwards;
+    text-align: center;
+    color: rgb(65, 241, 11);
+}
+
+@keyframes congrat {
+    0% {
+        top: -100px;
+        opacity: 0;
+    }
+
+    100% {
+        top: -65px;
+        opacity: 1;
+    }
+}
+
+.rank-win {
+    position: relative;
+    top: -60px;
+    margin: 15px 0 100px 0;
+    animation: win 2s ease infinite;
+    animation-delay: 2s;
+    text-align: center;
+    color: rgb(236, 48, 227);
+}
+
+@keyframes win {
+    0% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(.8);
+    }
+
+    60% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+table {
+    width: 500px;
+    table-layout: fixed;
+    position: relative;
+    left: 48%;
+    transform: translate(-50%, -50%);
+}
+
+th {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding-bottom: 10px;
+}
+
+td {
+    color: white;
+    padding: 4px;
+}
+

@@ -27,7 +27,7 @@
         <a href="logout.php" class="logout-button" name="logout" value="Logout">Log out</a>
     </div>
 
-    <div id="left_side">
+    <div id="info">
         <div class="player">
             Welcome! <span style="color: yellow;"> <?php print ucfirst($_SESSION['username']); ?> </span>
         </div>

@@ -97,444 +97,292 @@
                     }
                 }
 
+                $category = '';
+                $question = '';
+                $answer_name = '';
+
                 /*For row 1*/
-                if (isset($_GET['quest1-1']) && $_GET['quest1-1'] == 1) {
-                    if (isset($_POST['submit_row1'])) {
-                        /*Store dollar to id current dollar and prev dollar to id prev dollar, 
-                        different id will check for each row and column*/
-                        $_SESSION['current_dollar1-1'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar1-1'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check1-1'] = true;
-                        header("location: index.php");
+                for ($i=1; $i<=5; $i++) {
+                    if (isset($_GET['quest1-' .$i]) && $_GET['quest1-' .$i] == 1) {
+                        if (isset($_POST['submit_row1'])) {
+                            /*Store current dollar and prev dollar to other name for each row and column, 
+                            make it different to let them not affect together when checking*/
+                            $_SESSION['current_dollar1-' .$i] = $_SESSION['dollar'];
+                            $_SESSION['prev_dollar1-' .$i] = $_SESSION['prev_dollar'];
+                            /*Set the check true when player submit*/
+                            $_SESSION['check1-' .$i] = true;
+                            header("location: index.php");
+                        }
+                        switch ($i) {
+                            case 1:
+                                $category = 'History';
+                                $question = 'Who was the first US president?';
+                                $answer_name = 'answer1-1';
+                                $place_holder = 'Who is ___ ?';
+                                break;
+                            case 2:
+                                $category = 'Science';
+                                $question = 'What is the term used to describe the process of creating a web page using HTML, CSS, and JavaScript?';
+                                $answer_name = 'answer1-2';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 3:
+                                $category = 'Sports';
+                                $question = 'What is the name of the international soccer tournament held every four years, featuring teams from around the world?';
+                                $answer_name = 'answer1-3';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 4:
+                                $category = 'Geography';
+                                $question = 'What is the smallest state in America?';
+                                $answer_name = 'answer1-4';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 5:
+                                $category = 'Art & Artiest';
+                                $question = 'Who painted the Mona Lisa?';
+                                $answer_name = 'answer1-5';
+                                $place_holder = 'Who is ___ ?';
+                                break;
+                        }
+                        echo '
+                            <h2>' .$category. ' $200</h2>
+                            <h3>' .$question. '</h3>
+                            <form method="post" id="form">
+                                <label for="answer"><b>Your answer.</b></label>
+                                <input class="answer-input" type="text" name="' .$answer_name. '" placeholder="'.$place_holder.'" required="">
+                                <button class="submit-answer" name="submit_row1" type="submit">Submit</button>
+                            </form>
+                        ';
                     }
-                    echo '
-                        <h2>History $200</h2>
-                        <h3>Who was the first US president?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer1-1" placeholder="Who is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row1" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest1-2']) && $_GET['quest1-2'] == 1) {
-                    if (isset($_POST['submit_row1'])) {
-                        $_SESSION['current_dollar1-2'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar1-2'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check1-2'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Science $200</h2>
-                        <h3>What is the term used to describe the process of creating a web page using HTML, CSS, and JavaScript?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer1-2" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row1" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest1-3']) && $_GET['quest1-3'] == 1) {
-                    if (isset($_POST['submit_row1'])) {
-                        $_SESSION['current_dollar1-3'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar1-3'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check1-3'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Sports $200</h2>
-                        <h3>What is the name of the international soccer tournament held every four years, featuring teams from around the world?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer1-3" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row1" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest1-4']) && $_GET['quest1-4'] == 1) {
-                    if (isset($_POST['submit_row1'])) {
-                        $_SESSION['current_dollar1-4'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar1-4'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check1-4'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Geography $200</h2>
-                        <h3>What is the smallest state in America?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer1-4" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row1" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest1-5']) && $_GET['quest1-5'] == 1) {
-                    if (isset($_POST['submit_row1'])) {
-                        $_SESSION['current_dollar1-5'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar1-5'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check1-5'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Art & Artiest $200</h2>
-                        <h3>Who painted the Mona Lisa?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer1-5" placeholder="Who is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row1" type="submit">Submit</button>
-                        </form>
-                    ';
                 }
 
                 /*For row 2*/
-                else if (isset($_GET['quest2-1']) && $_GET['quest2-1'] == 1) {
-                    if (isset($_POST['submit_row2'])) {
-                        $_SESSION['current_dollar2-1'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar2-1'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check2-1'] = true;
-                        header("location: index.php");
+                for ($i=1; $i<=5; $i++) {
+                    if (isset($_GET['quest2-' .$i]) && $_GET['quest2-' .$i] == 1) {
+                        if (isset($_POST['submit_row2'])) {
+                            $_SESSION['current_dollar2-' .$i] = $_SESSION['dollar'];
+                            $_SESSION['prev_dollar2-' .$i] = $_SESSION['prev_dollar'];
+                            $_SESSION['check2-' .$i] = true;
+                            header("location: index.php");
+                        }
+                        switch ($i) {
+                            case 1:
+                                $category = 'History';
+                                $question = 'In what year was the first microprocessor invented?';
+                                $answer_name = 'answer2-1';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 2:
+                                $category = 'Science';
+                                $question = 'What is the name of the markup language used to create web pages, which is
+                                used to define the structure and content of a web page?';
+                                $answer_name = 'answer2-2';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 3:
+                                $category = 'Sports';
+                                $question = 'What is the name of the American football championship game played annually
+                                between the winners of the AFC and NFC?';
+                                $answer_name = 'answer2-3';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 4:
+                                $category = 'Geography';
+                                $question = 'What is the name of the largest desert in the world, covering much of Northern
+                                Africa? ';
+                                $answer_name = 'answer2-4';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 5:
+                                $category = 'Art & Artiest';
+                                $question = 'Who painted the Starry Night?';
+                                $answer_name = 'answer2-5';
+                                $place_holder = 'Who is ___ ?';
+                                break;
+                        }
+                        echo '
+                            <h2>' .$category. ' $400</h2>
+                            <h3>' .$question. '</h3>
+                            <form method="post" id="form">
+                                <label for="answer"><b>Your answer.</b></label>
+                                <input class="answer-input" type="text" name="' .$answer_name. '" placeholder="'.$place_holder.'" required="">
+                                <button class="submit-answer" name="submit_row2" type="submit">Submit</button>
+                            </form>
+                        ';
                     }
-                    echo '
-                        <h2>History $400</h2>
-                        <h3>In what year was the first microprocessor invented?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer2-1" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row2" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest2-2']) && $_GET['quest2-2'] == 1) {
-                    if (isset($_POST['submit_row2'])) {
-                        $_SESSION['current_dollar2-2'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar2-2'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check2-2'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Science $400</h2>
-                        <h3>What is the name of the markup language used to create web pages, which is used to define the structure and content of a web page?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer2-2" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row2" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest2-3']) && $_GET['quest2-3'] == 1) {
-                    if (isset($_POST['submit_row2'])) {
-                        $_SESSION['current_dollar2-3'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar2-3'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check2-3'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Sports $400</h2>
-                        <h3>What is the name of the American football championship game played annually between the winners of the AFC and NFC?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer2-3" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row2" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest2-4']) && $_GET['quest2-4'] == 1) {
-                    if (isset($_POST['submit_row2'])) {
-                        $_SESSION['current_dollar2-4'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar2-4'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check2-4'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Geography $400</h2>
-                        <h3>What is the name of the largest desert in the world, covering much of Northern Africa?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer2-4" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row2" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest2-5']) && $_GET['quest2-5'] == 1) {
-                    if (isset($_POST['submit_row2'])) {
-                        $_SESSION['current_dollar2-5'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar2-5'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check2-5'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Art & Artiest $400</h2>
-                        <h3>Who painted the Starry Night?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer2-5" placeholder="Who is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row2" type="submit">Submit</button>
-                        </form>
-                    ';
                 }
 
 
                 /*For row 3*/
-                else if (isset($_GET['quest3-1']) && $_GET['quest3-1'] == 1) {
-                    if (isset($_POST['submit_row3'])) {
-                        $_SESSION['current_dollar3-1'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar3-1'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check3-1'] = true;
-                        header("location: index.php");
+                for ($i=1; $i<=5; $i++) {
+                    if (isset($_GET['quest3-' .$i]) && $_GET['quest3-' .$i] == 1) {
+                        if (isset($_POST['submit_row3'])) {
+                            $_SESSION['current_dollar3-' .$i] = $_SESSION['dollar'];
+                            $_SESSION['prev_dollar3-' .$i] = $_SESSION['prev_dollar'];
+                            $_SESSION['check3-' .$i] = true;
+                            header("location: index.php");
+                        }
+                        switch ($i) {
+                            case 1:
+                                $category = 'History';
+                                $question = 'What was the first popular programming language created in 1957?';
+                                $answer_name = 'answer3-1';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 2:
+                                $category = 'Science';
+                                $question = 'In computer networking, what does DNS stand for?';
+                                $answer_name = 'answer3-2';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 3:
+                                $category = 'Sports';
+                                $question = 'In baseball, what is the term for the defensive player who stands behind home
+                                plate and catches the pitches thrown by the pitcher?';
+                                $answer_name = 'answer3-3';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 4:
+                                $category = 'Geography';
+                                $question = 'What is the capital city of Spain, known for its art, architecture, and football?';
+                                $answer_name = 'answer3-4';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 5:
+                                $category = 'Art & Artiest';
+                                $question = 'What is the name of the most visited museum in Paris that is shaped like a glass
+                                pyramid?';
+                                $answer_name = 'answer3-5';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                        }
+                        echo '
+                            <h2>' .$category. ' $600</h2>
+                            <h3>' .$question. '</h3>
+                            <form method="post" id="form">
+                                <label for="answer"><b>Your answer.</b></label>
+                                <input class="answer-input" type="text" name="' .$answer_name. '" placeholder="'.$place_holder.'" required="">
+                                <button class="submit-answer" name="submit_row3" type="submit">Submit</button>
+                            </form>
+                        ';
                     }
-                    echo '
-                        <h2>History $600</h2>
-                        <h3>What was the first popular programming language created in 1957?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer3-1" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row3" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest3-2']) && $_GET['quest3-2'] == 1) {
-                    if (isset($_POST['submit_row3'])) {
-                        $_SESSION['current_dollar3-2'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar3-2'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check3-2'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Science $600</h2>
-                        <h3>In computer networking, what does DNS stand for?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer3-2" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row3" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest3-3']) && $_GET['quest3-3'] == 1) {
-                    if (isset($_POST['submit_row3'])) {
-                        $_SESSION['current_dollar3-3'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar3-3'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check3-3'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Sports $600</h2>
-                        <h3>In baseball, what is the term for the defensive player who stands behind home plate and catches the pitches thrown by the pitcher?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer3-3" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row3" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest3-4']) && $_GET['quest3-4'] == 1) {
-                    if (isset($_POST['submit_row3'])) {
-                        $_SESSION['current_dollar3-4'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar3-4'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check3-4'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Geography $600</h2>
-                        <h3>What is the capital city of Spain, known for its art, architecture, and football?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer3-4" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row3" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest3-5']) && $_GET['quest3-5'] == 1) {
-                    if (isset($_POST['submit_row3'])) {
-                        $_SESSION['current_dollar3-5'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar3-5'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check3-5'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Art & Artiest $600</h2>
-                        <h3>What is the name of the most visited museum in Paris that is shaped like a glass pyramid?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer3-5" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row3" type="submit">Submit</button>
-                        </form>
-                    ';
                 }
 
 
                 /*For row 4*/
-                else if (isset($_GET['quest4-1']) && $_GET['quest4-1'] == 1) {
-                    if (isset($_POST['submit_row4'])) {
-                        $_SESSION['current_dollar4-1'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar4-1'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check4-1'] = true;
-                        header("location: index.php");
+                for ($i=1; $i<=5; $i++) {
+                    if (isset($_GET['quest4-' .$i]) && $_GET['quest4-' .$i] == 1) {
+                        if (isset($_POST['submit_row4'])) {
+                            $_SESSION['current_dollar4-' .$i] = $_SESSION['dollar'];
+                            $_SESSION['prev_dollar4-' .$i] = $_SESSION['prev_dollar'];
+                            $_SESSION['check4-' .$i] = true;
+                            header("location: index.php");
+                        }
+                        switch ($i) {
+                            case 1:
+                                $category = 'History';
+                                $question = 'What is the name of the organization that sets standards for the World Wide Web,
+                                including HTML, CSS, and other technologies?';
+                                $answer_name = 'answer4-1';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 2:
+                                $category = 'Science';
+                                $question = 'What is the name of the process used to test software for defects or errors before
+                                it is released to the public?';
+                                $answer_name = 'answer4-2';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 3:
+                                $category = 'Sports';
+                                $question = 'What is the name of the international soccer club competition featuring the best
+                                teams from across Europe?';
+                                $answer_name = 'answer4-3';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 4:
+                                $category = 'Geography';
+                                $question = 'What is the name of the longest river in Africa, flowing through ten countries
+                                before emptying into the Mediterranean Sea?';
+                                $answer_name = 'answer4-4';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 5:
+                                $category = 'Art & Artiest';
+                                $question = 'Who created the first computer-generated piece of art in 1963?';
+                                $answer_name = 'answer4-5';
+                                $place_holder = 'Who is ___ ?';
+                                break;
+                        }
+                        echo '
+                            <h2>' .$category. ' $800</h2>
+                            <h3>' .$question. '</h3>
+                            <form method="post" id="form">
+                                <label for="answer"><b>Your answer.</b></label>
+                                <input class="answer-input" type="text" name="' .$answer_name. '" placeholder="'.$place_holder.'" required="">
+                                <button class="submit-answer" name="submit_row4" type="submit">Submit</button>
+                            </form>
+                        ';
                     }
-                    echo '
-                        <h2>History $800</h2>
-                        <h3>What is the name of the organization that sets standards for the World Wide Web, including HTML, CSS, and other technologies?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer4-1" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row4" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest4-2']) && $_GET['quest4-2'] == 1) {
-                    if (isset($_POST['submit_row4'])) {
-                        $_SESSION['current_dollar4-2'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar4-2'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check4-2'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Science $800</h2>
-                        <h3>What is the name of the process used to test software for defects or errors before it is released to the public?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer4-2" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row4" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest4-3']) && $_GET['quest4-3'] == 1) {
-                    if (isset($_POST['submit_row4'])) {
-                        $_SESSION['current_dollar4-3'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar4-3'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check4-3'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Sports $800</h2>
-                        <h3>What is the name of the international soccer club competition featuring the best teams from across Europe?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer4-3" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row4" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest4-4']) && $_GET['quest4-4'] == 1) {
-                    if (isset($_POST['submit_row4'])) {
-                        $_SESSION['current_dollar4-4'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar4-4'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check4-4'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Geography $800</h2>
-                        <h3>What is the name of the longest river in Africa, flowing through ten countries before emptying into the Mediterranean Sea?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer4-4" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row4" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest4-5']) && $_GET['quest4-5'] == 1) {
-                    if (isset($_POST['submit_row4'])) {
-                        $_SESSION['current_dollar4-5'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar4-5'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check4-5'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Art & Artiest $800</h2>
-                        <h3>Who created the first computer-generated piece of art in 1963?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer4-5" placeholder="Who is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row4" type="submit">Submit</button>
-                        </form>
-                    ';
                 }
 
 
                 /*For row 5*/
-                else if (isset($_GET['quest5-1']) && $_GET['quest5-1'] == 1) {
-                    if (isset($_POST['submit_row5'])) {
-                        $_SESSION['current_dollar5-1'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar5-1'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check5-1'] = true;
-                        header("location: index.php");
+                for ($i=1; $i<=5; $i++) {
+                    if (isset($_GET['quest5-' .$i]) && $_GET['quest5-' .$i] == 1) {
+                        if (isset($_POST['submit_row5'])) {
+                            $_SESSION['current_dollar5-' .$i] = $_SESSION['dollar'];
+                            $_SESSION['prev_dollar5-' .$i] = $_SESSION['prev_dollar'];
+                            $_SESSION['check5-' .$i] = true;
+                            header("location: index.php");
+                        }
+                        switch ($i) {
+                            case 1:
+                                $category = 'History';
+                                $question = 'What is the name of the programming language used to create dynamic web
+                                pages, which was created by Brendan Eich in 1995 and was originally called Mocha?';
+                                $answer_name = 'answer5-1';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 2:
+                                $category = 'Science';
+                                $question = 'What is the name of the framework developed by Google for building web
+                                applications using HTML, CSS, and JavaScript?';
+                                $answer_name = 'answer5-2';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 3:
+                                $category = 'Sports';
+                                $question = 'What is the name of the horse race that takes place annually on the first
+                                Saturday in May in Louisville, Kentucky?';
+                                $answer_name = 'answer5-3';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 4:
+                                $category = 'Geography';
+                                $question = 'What is the capital city of Australia, located on the southeast coast?';
+                                $answer_name = 'answer5-4';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                            case 5:
+                                $category = 'Art & Artiest';
+                                $question = 'What is the name of the process used to create photorealistic 3D images and
+                                animations, often used in movies and video games?';
+                                $answer_name = 'answer5-5';
+                                $place_holder = 'What is ___ ?';
+                                break;
+                        }
+                        echo '
+                            <h2>' .$category. ' $1000</h2>
+                            <h3>' .$question. '</h3>
+                            <form method="post" id="form">
+                                <label for="answer"><b>Your answer.</b></label>
+                                <input class="answer-input" type="text" name="' .$answer_name. '" placeholder="'.$place_holder.'" required="">
+                                <button class="submit-answer" name="submit_row5" type="submit">Submit</button>
+                            </form>
+                        ';
                     }
-                    echo '
-                        <h2>History $1000</h2>
-                        <h3>What is the name of the programming language used to create dynamic web pages, which was created by Brendan Eich in 1995 and was originally called Mocha?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer5-1" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row5" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest5-2']) && $_GET['quest5-2'] == 1) {
-                    if (isset($_POST['submit_row5'])) {
-                        $_SESSION['current_dollar5-2'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar5-2'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check5-2'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Science $1000</h2>
-                        <h3>What is the name of the framework developed by Google for building web applications using HTML, CSS, and JavaScript?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer5-2" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row5" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest5-3']) && $_GET['quest5-3'] == 1) {
-                    if (isset($_POST['submit_row5'])) {
-                        $_SESSION['current_dollar5-3'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar5-3'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check5-3'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Sports $1000</h2>
-                        <h3>What is the name of the horse race that takes place annually on the first Saturday in May in Louisville, Kentucky?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer5-3" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row5" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest5-4']) && $_GET['quest5-4'] == 1) {
-                    if (isset($_POST['submit_row5'])) {
-                        $_SESSION['current_dollar5-4'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar5-4'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check5-4'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Geography $1000</h2>
-                        <h3>What is the capital city of Australia, located on the southeast coast?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer5-4" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row5" type="submit">Submit</button>
-                        </form>
-                    ';
-                }
-                else if (isset($_GET['quest5-5']) && $_GET['quest5-5'] == 1) {
-                    if (isset($_POST['submit_row5'])) {
-                        $_SESSION['current_dollar5-5'] = $_SESSION['dollar'];
-                        $_SESSION['prev_dollar5-5'] = $_SESSION['prev_dollar'];
-                        $_SESSION['check5-5'] = true;
-                        header("location: index.php");
-                    }
-                    echo '
-                        <h2>Art & Artiest $1000</h2>
-                        <h3>What is the name of the process used to create photorealistic 3D images and animations, often used in movies and video games?</h3>
-                        <form method="post" id="form">
-                            <label for="answer"><b>Your answer.</b></label>
-                            <input class="answer-input" type="text" name="answer5-5" placeholder="What is ___ ?" required="">
-                            <button class="submit-answer" name="submit_row5" type="submit">Submit</button>
-                        </form>
-                    ';
                 }
             ?>
 

@@ -59,23 +59,23 @@
 
             foreach($_SESSION['ranking'] as $user=>$money) {
 
-                $suffix = '';
+                $suff = '';
                 if ($i == 1) {
-                    $suffix = 'st';
+                    $suff = 'st';
                 }
                 else if ($i == 2) {
-                    $suffix = 'nd';
+                    $suff = 'nd';
                 }
                 else if ($i == 3) {
-                    $suffix = 'rd';
+                    $suff = 'rd';
                 }
                 else {
-                    $suffix = 'th';
+                    $suff = 'th';
                 }
 
                 echo '
                     <tr>
-                        <td>' . $i . $suffix . '</td>
+                        <td>' . $i . $suff . '</td>
                         <td>'.$user.'</td>
                         <td>$'.$money.'</td>
                     </tr>

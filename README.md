@@ -34,8 +34,6 @@
 NOTE: These features are read/write to file txt
 
 ## 💻 Tech Stacks
-* <a href="#" title="HTML"><img src="https://github.com/get-icon/geticon/raw/master/icons/html-5.svg" alt="HTML" width="21px" height="21px"></a> HTML
-  
-* <a href="#" title="CSS"><img src="https://github.com/get-icon/geticon/raw/master/icons/css-3.svg" alt="CSS" width="21px" height="21px"></a> CSS
-
 * <a href="https://php.net/" title="PHP"><img src="https://github.com/get-icon/geticon/raw/master/icons/php.svg" alt="PHP" width="31px" height="31px"></a> PHP
+
+* <a href="#" title="CSS"><img src="https://github.com/get-icon/geticon/raw/master/icons/css-3.svg" alt="CSS" width="21px" height="21px"></a> CSS

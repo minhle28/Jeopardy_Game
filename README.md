@@ -4,6 +4,9 @@
 ## ⭐ About 
 * Jeopardy game, there are 25 questions with 5 questions at different prices for every 5 categories.
 
+## 📝 Note
+* Work well on computer only.
+
 
 ## Demo Web
 * In progressing

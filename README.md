@@ -2,7 +2,7 @@
 <img src="https://img.shields.io/github/stars/minhle28/Jeopardy_Game"/> <img src="https://img.shields.io/github/issues/minhle28/Jeopardy_Game"/> ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/minhle28/Jeopardy_Game)
 
 ## ⭐ About 
-* Jeopard game, there are 25 questions with 5 questions at different prices for every 5 categories.
+* Jeopardy game, there are 25 questions with 5 questions at different prices for every 5 categories.
 
 
 ## Demo Web

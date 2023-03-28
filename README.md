@@ -19,7 +19,9 @@
 
 ![4](https://user-images.githubusercontent.com/114270231/228113174-59aa3c57-b114-421b-ab54-ca18edcdc4fb.png)
 
-![5](https://user-images.githubusercontent.com/114270231/228113187-c3242cd1-9253-42bc-834c-f4127fe65a59.png)
+![5](https://user-images.githubusercontent.com/114270231/228116447-e00ff6e8-0869-408b-8efd-89423164e82c.png)
+
+![6](https://user-images.githubusercontent.com/114270231/228116459-eb2ef2b1-903f-4404-ab23-ef3e1cb63234.png)
 
 ## Features
 * Login/Registration 

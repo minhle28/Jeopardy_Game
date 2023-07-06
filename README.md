@@ -8,10 +8,6 @@
 * Work well on computer only.
 
 
-## Demo Web
-* In progressing
-
-
 ## 🌐 Web Screenshots
 
 ![1](https://user-images.githubusercontent.com/114270231/228113129-58cdf360-c895-435d-a10f-b1f7dcdca6a5.png)
